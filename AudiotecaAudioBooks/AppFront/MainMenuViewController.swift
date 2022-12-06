@@ -23,7 +23,12 @@ class MainMenuViewController: UIViewController {
         setup()
         if let content = Network.read([Way].self, from: "Ways") {
             self.content = content
+            print(content)
         }
+    }
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        collectionView.reloadData()
     }
 }
 
@@ -42,10 +47,13 @@ extension MainMenuViewController: Setup {
 }
 
 extension MainMenuViewController: CollectionViewDelegate {
+    func collectionView(didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
     func setupCell(_ identifier: String, indexPath: IndexPath) -> UICollectionViewCell? {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,
                                                       for: indexPath) as? MainMenuCollectionViewCell
-        cell?.setup("\(content[indexPath.row].name ?? "")")
+        cell?.setup(content[indexPath.row])
         return cell
     }
 }

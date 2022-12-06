@@ -8,7 +8,12 @@
 import UIKit
 
 protocol CollectionViewDelegate: AnyObject {
+    func collectionView(didSelectItemAt indexPath: IndexPath)
     func setupCell(_ identifier: String, indexPath: IndexPath) -> UICollectionViewCell?
+}
+
+extension CollectionViewDelegate {
+    func collectionView(didSelectItemAt indexPath: IndexPath) {}
 }
 
 class CollectionView: UICollectionView {
@@ -37,6 +42,9 @@ extension CollectionView: Setup {
 }
 
 extension CollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionViewDelegate?.collectionView(didSelectItemAt: indexPath)
+    }
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return numberOfCells

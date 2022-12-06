@@ -1,42 +1,42 @@
 [
     {
-        "name": "Josicleison",
-        "coordinates": {
-            "video": "Lero",
-            "image": " Lero",
+        "name": "Mito da defesa nacional I",
+        "links": {
+            "video": "https://player.odycdn.com/api/v4/streams/free/MDN1/c373fd945d00cd563749fb1d02e7aeaab8d1168c/32bc41",
+            "image": "https://thumbnails.odycdn.com/optimize/s:1280:720/quality:85/plain/https://thumbs.odycdn.com/e3158612a477f5c8b8c56166a04a167d.png",
         }
     },
     {
         "name": "Josicleide",
-        "coordinates": {
+        "links": {
             "video": "Lero",
             "image": " Lero",
         }
     },
     {
         "name": "1",
-        "coordinates": {
+        "links": {
             "video": "Lero",
             "image": " Lero",
         }
     },
     {
         "name": "b",
-        "coordinates": {
+        "links": {
             "video": "Lero",
             "image": " Lero",
         }
     },
     {
         "name": "c",
-        "coordinates": {
+        "links": {
             "video": "Lero",
             "image": " Lero",
         }
     },
     {
         "name": "d",
-        "coordinates": {
+        "links": {
             "video": "Lero",
             "image": " Lero",
         }

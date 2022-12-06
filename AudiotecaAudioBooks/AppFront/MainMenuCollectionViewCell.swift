@@ -8,7 +8,7 @@
 import UIKit
 
 class MainMenuCollectionViewCell: UICollectionViewCell {
-    private let imageView = Create.imageView()
+    private lazy var imageView = UIImageView()
     private let label: UILabel = {
         let label = Create.label()
         label.textAlignment = .center
@@ -21,20 +21,28 @@ class MainMenuCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func setup(_ text: String) {
-        label.text = text
+    func clear() {
+        imageView.image = nil
+        label.text = nil
+    }
+    func setup(_ book: Way) {
+        label.text = book.name
+        guard let image = book.links?.image else {return}
+        Task {
+            guard let data = await Network.call(from: URL(string: image)) else {return}
+            imageView.image = UIImage(data: data)
+        }
     }
 }
 
 extension MainMenuCollectionViewCell: Setup {
     func configure() {
-        addSubviews([imageView, label])
+        contentView.addSubviews([imageView, label])
     }
     func constrain() {
         imageView.enableAutoLayout
-            .constraint(attributes: [.top, .leading, .trailing])
+            .constraint(attributes: [.top, .leading, .trailing, .bottom])
         label.enableAutoLayout
-            .constraint(attributesAttributes: [.top: .bottom], to: imageView)
             .constraint(attributes: [.leading, .trailing, .bottom])
     }
 }

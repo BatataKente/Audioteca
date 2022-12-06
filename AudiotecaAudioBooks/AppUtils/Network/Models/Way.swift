@@ -12,4 +12,5 @@ struct Way: Codable {
         let video, image: String?
     }
     let name: String?
+    let links: URLs?
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D121CDE293FA8410098E276 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D121CDD293FA8410098E276 /* Assets.swift */; };
 		1D413C9B293F8D6C005FB7AD /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D413C9A293F8D6C005FB7AD /* Constraints.swift */; };
 		1D413C9D293F8E64005FB7AD /* Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D413C9C293F8E64005FB7AD /* Hierarchy.swift */; };
 		1D413CA0293F8F21005FB7AD /* RemoveLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D413C9F293F8F21005FB7AD /* RemoveLast.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D121CDD293FA8410098E276 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		1D413C9A293F8D6C005FB7AD /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		1D413C9C293F8E64005FB7AD /* Hierarchy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hierarchy.swift; sourceTree = "<group>"; };
 		1D413C9F293F8F21005FB7AD /* RemoveLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveLast.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				1DB6E1E8293F5FAB0044E241 /* Assets.xcassets */,
+				1D121CDD293FA8410098E276 /* Assets.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				1D413CB9293F9E40005FB7AD /* Way.swift in Sources */,
 				1DB6E1E4293F5FA90044E241 /* MainMenuViewController.swift in Sources */,
 				1D413CA6293F9059005FB7AD /* Create.swift in Sources */,
+				1D121CDE293FA8410098E276 /* Assets.swift in Sources */,
 				1D413CA8293F906D005FB7AD /* NavigationController.swift in Sources */,
 				1DB6E1E0293F5FA90044E241 /* AppDelegate.swift in Sources */,
 				1D413CBB293F9F60005FB7AD /* ImageView.swift in Sources */,
