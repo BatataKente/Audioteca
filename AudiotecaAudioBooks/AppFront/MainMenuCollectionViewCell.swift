@@ -8,7 +8,7 @@
 import UIKit
 
 class MainMenuCollectionViewCell: UICollectionViewCell {
-    private lazy var imageView = UIImageView()
+    private let imageView = UIImageView()
     private let label: UILabel = {
         let label = Create.label()
         label.textAlignment = .center
@@ -25,12 +25,13 @@ class MainMenuCollectionViewCell: UICollectionViewCell {
         imageView.image = nil
         label.text = nil
     }
-    func setup(_ book: Way) {
-        label.text = book.name
-        guard let image = book.links?.image else {return}
-        Task {
-            guard let data = await Network.call(from: URL(string: image)) else {return}
-            imageView.image = UIImage(data: data)
+    func setup(_ way: Way) {
+        clear()
+        label.text = way.name
+        Task {[weak self] in
+            guard let path = way.links?.image else {return}
+            guard let data = await Network.call(from: URL(string: path)) else {return}
+            self?.imageView.image = UIImage(data: data)
         }
     }
 }

@@ -9,11 +9,16 @@ import UIKit
 
 protocol CollectionViewDelegate: AnyObject {
     func collectionView(didSelectItemAt indexPath: IndexPath)
-    func setupCell(_ identifier: String, indexPath: IndexPath) -> UICollectionViewCell?
+    func collectionView(_ collectionView: UICollectionView, sizeForItemAt indexPath: IndexPath) -> CGSize
+    func collectionView(_ identifier: String, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell?
 }
 
 extension CollectionViewDelegate {
     func collectionView(didSelectItemAt indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width,
+                      height: collectionView.frame.height)
+    }
 }
 
 class CollectionView: UICollectionView {
@@ -51,13 +56,15 @@ extension CollectionView: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return (collectionViewDelegate?.setupCell(identifier, indexPath: indexPath)) ?? UICollectionViewCell()
+        return (collectionViewDelegate?.collectionView(identifier, cellForItemAt: indexPath)) ?? UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width*0.5,
-                      height: frame.height*0.5)
+        return collectionViewDelegate?.collectionView(
+            collectionView, sizeForItemAt: indexPath
+        ) ?? CGSize(width: collectionView.frame.width,
+                    height: collectionView.frame.height)
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

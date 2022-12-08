@@ -50,7 +50,7 @@ extension MainMenuViewController: CollectionViewDelegate {
     func collectionView(didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
     }
-    func setupCell(_ identifier: String, indexPath: IndexPath) -> UICollectionViewCell? {
+    func collectionView(_ identifier: String, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell? {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,
                                                       for: indexPath) as? MainMenuCollectionViewCell
         cell?.setup(content[indexPath.row])
